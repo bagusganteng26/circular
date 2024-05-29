@@ -94,6 +94,49 @@ void tambahLast (string namaBarang, int jumlahBarang, int hargaBarang) {
 }
 }
 
+void ubahAwal (string namaBarang, int jumlahBarang, int hargaBarang){
+    kepala->nama = namaBarang;
+    kepala->jumlah = jumlahBarang;
+    kepala->harga = hargaBarang;
+}
+
+void ubahLast (string namaBarang, int jumlahBarang, int hargaBarang){
+    bt->nama = namaBarang;
+    bt->jumlah = jumlahBarang;
+    bt->harga = hargaBarang;
+}
+
+
+void editTengah(string namaBarag, int jumlahBarang, int hargaBarang, int posisi) {
+    if (kepala == NULL)
+    {
+        cout << "Double Linkedlist belum dibuat";
+    }else{
+        if (posisi == 1)
+        {
+            cout << "posisi awal bukan posisi tengah" << endl;
+        }else if (posisi < 1)
+        {
+            cout << "posisi ngawur" << endl;
+        }else
+        {
+
+        //transfersing
+        ini = kepala;
+        int nomor = 1;
+        while (nomor < posisi)
+        {
+            ini = ini ->next;
+            nomor++;
+        }
+        ini ->nama = namaBarag;
+        ini ->jumlah= jumlahBarang;
+        ini ->harga= hargaBarang;
+}
+}
+}
+
+
 void hapusAwal () {
     del = kepala;
     kepala = kepala->next;
@@ -164,14 +207,12 @@ void cetak () {
 
 int main () {
     tambahBarang("Meja", 10, 10000);
-    // cetak();
     tambahAwal("Kursi", 22, 50000);
-    // cetak();
     tambahLast("Buku", 20, 10000);
-    // cetak();
-    // hapusAwal();
-    // hapusLast();
     tambahTengah("Polpen", 15, 2500, 2);
-    hapusTengah(3);
+
+    ubahAwal("stopkontak", 10, 11000);
+    editTengah("komputer", 11, 17000, 3);
+    ubahLast("Tas", 15, 100000);
     cetak();
 }

@@ -84,6 +84,26 @@ void ubahAwal (string data[3]) {
     kepala->jurusan = data[2];
 }
 
+void ubahTengah (string data[3], int posisi) {
+    if (posisi < 1) {
+        cout << "posisi diluar jangkauan" << endl;
+    } else if (posisi == 1) {
+        cout << "bukan posisi tengah" << endl;
+    }
+    else {
+    ini = kepala;
+    int nomor = 1;
+    while (nomor < posisi)
+    {
+        ini = ini->next;
+        nomor++;
+    }
+    ini->nama =  data[0];
+    ini->nim = data[1];
+    ini->jurusan = data[2];
+    }
+} 
+
 void ubahlast (string data[3]) {
     bt->nama = data[0];
     bt->nim = data[1];
@@ -148,31 +168,31 @@ int main () {
     string dataBaru[3] = {"Bagus Eko", "202311002", "Informatika"};
     buatList(dataBaru);
 
-    cetak();
+    // cetak();
 
     string data1[3] = {"Eko Wijayanto", "20231101", "Teknik Mesin"};
     tambahAwal(data1);
 
-    cetak();
+    // cetak();
 
     string data2[3] = {"Joko Widodo", "202311022", "Manajemen"};
     tambahLast(data2);
 
-    cetak();
+    // cetak();
 
     string data3[3] = {"Soekarno", "20231002", "Kedokteran"};
     ubahAwal(data3);
-    cetak();
+    // cetak();
 
     string data4[3] = {"Soeharto", "202311012", "Ilmu Komunikasi"};
     ubahlast(data4);
-    cetak();
+    // cetak();
 
-    string data5[3] = {"Ilma Maulika", "202211013", "Kimia Farmasi"};
-    tambahTengah(data5, 6);
-    cetak();
-
-    hapusTengah(1);
+    string data5[3] = {"Megawati", "202211013", "Kimia Farmasi"};
+    tambahTengah(data5, 2);
+    
+    string data6[3] = {"Gus Dur", "202311022", "Penerbangan"};
+    ubahTengah(data6, 3);
     cetak();
     // hapusAwal();
     // cetak();
